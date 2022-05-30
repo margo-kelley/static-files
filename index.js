@@ -4,23 +4,23 @@ var restaurants = [{id:0,name:"Woodshill"},{id:1,name:"Fiorellas"}]
 
 const app = express();
 app.use(express.json());
+// does not allow access to KEY
 let options = {
     dotfiles: "ignore",
     redirect:false
 }
 
-app.get("/", (req,res)=>{
-  res.send("Hello World")
-})
 
 app.use(express.static('public',options))
 
 app.get("/",(req,res)=>{
-// let html = "<img src='img/tenor.gif'/>"
-// let key = "<a href='.secret/key.txt'>secret key </a>"
-// res.send(html+key)
+let html = "<img src='img/tenor.gif'/>"
+let key = "<a href='.secret/key.txt'>secret key </a>"
+res.send(html+key)
 }
 )
+
+
 app.get("/restaurants", (req,res)=>{
     // res.send(restaurants);
 })
